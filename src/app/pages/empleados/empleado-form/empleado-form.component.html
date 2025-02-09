@@ -1,0 +1,22 @@
+<div class="container mt-3">
+    <h2>{{ isEdit ? 'Editar' : 'Nuevo' }} Empleado</h2>
+    
+    <form (ngSubmit)="guardarEmpleado()">
+      <div class="mb-3">
+        <label class="form-label">Nombre</label>
+        <input type="text" class="form-control" [(ngModel)]="empleado.nombre" name="nombre" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Cargo</label>
+        <input type="text" class="form-control" [(ngModel)]="empleado.cargo" name="cargo" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Salario</label>
+        <input type="number" class="form-control" [(ngModel)]="empleado.salario" name="salario" required>
+      </div>
+      
+      <button type="submit" class="btn btn-success">Guardar</button>
+      <button type="button" class="btn btn-secondary" routerLink="/empleados">Cancelar</button>
+    </form>
+  </div>
+  

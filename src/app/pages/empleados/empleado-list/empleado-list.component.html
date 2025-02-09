@@ -1,0 +1,40 @@
+<div class="container mt-3">
+    <h2>Lista de Empleados</h2>
+    <button class="btn btn-primary mb-2" routerLink="/empleados/nuevo">Nuevo Empleado</button>
+    <table class="table table-striped">
+      <thead>
+        <tr><th>Nombre</th><th>Cargo</th><th>Salario</th><th>Acciones</th></tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let empleado of empleados">
+          <td>{{ empleado.nombre }}</td>
+          <td>{{ empleado.cargo }}</td>
+          <td>{{ empleado.salario }}</td>
+          <td>
+            <button class="btn btn-info btn-sm" [routerLink]="['/empleados', empleado.id]">Ver</button>
+            <button class="btn btn-warning btn-sm" [routerLink]="['/empleados/editar', empleado.id]">Editar</button>
+            <button class="btn btn-danger btn-sm" (click)="eliminarEmpleado()">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Modal de Confirmación -->
+<div class="modal fade" id="confirmModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Confirmar Eliminación</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          ¿Estás seguro de que quieres eliminar a <strong>{{ empleadoSeleccionado?.nombre }}</strong>?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-danger" (click)="eliminarEmpleado()">Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
