@@ -11,9 +11,9 @@ import { ConfiguracionComponent } from './pages/configuracion/configuracion.comp
 
 export const routes: Routes = [
     { path: 'calendario', component: CalendarioComponent },
-    { path: 'empleados', component: EmpleadoListComponent },
-    { path: 'empleados/nuevo', component: EmpleadoFormComponent },
-    { path: 'empleados/:id', component: EmpleadoDetailComponent },
+    { path: 'empleados', component: EmpleadoListComponent,data: { breadcrumb: 'Empleados' } },
+    { path: 'empleados/nuevo', component: EmpleadoFormComponent, data: { breadcrumb: 'Nuevo Empleado' }},
+    { path: 'empleados/:id', component: EmpleadoDetailComponent, data: { breadcrumb: 'Detalle Empleado' } },
     { path: 'empleados/editar/:id', component: EmpleadoFormComponent },
     { path: 'ventas', component: VentasComponent },
     { path: 'almacen', component: AlmacenComponent },

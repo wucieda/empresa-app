@@ -1,16 +1,19 @@
-<div class="container mt-3">
-    <h2>Detalles del Empleado</h2>
-    <div *ngIf="empleado">
-      <p><strong>Nombre:</strong> {{ empleado.nombre }}</p>
-      <p><strong>Cargo:</strong> {{ empleado.cargo }}</p>
-      <p><strong>Salario:</strong> ${{ empleado.salario }}</p>
-  
-      <button class="btn btn-primary" [routerLink]="['/empleados/editar', empleado.id]">Editar</button>
-      <button class="btn btn-secondary" routerLink="/empleados">Volver</button>
-    </div>
-    <div *ngIf="!empleado">
-      <p>Empleado no encontrado.</p>
-      <button class="btn btn-secondary" routerLink="/empleados">Volver</button>
+<div class="detalle-container">
+  <h2>Detalles del Empleado</h2>
+
+  <div *ngIf="empleado" class="empleado-info">
+    <p><strong>Nombre:</strong> {{ empleado.nombre }}</p>
+    <p><strong>Cargo:</strong> {{ empleado.cargo }}</p>
+    <p><strong>Salario:</strong> ${{ empleado.salario }}</p>
+
+    <div class="button-group">
+      <button class="btn-primary" [routerLink]="['/empleados/editar', empleado.id]">Editar</button>
+      <button class="btn-secondary" routerLink="/empleados">Volver</button>
     </div>
   </div>
-  
+
+  <div *ngIf="!empleado" class="empleado-error">
+    <p>Empleado no encontrado.</p>
+    <button class="btn-secondary" routerLink="/empleados">Volver</button>
+  </div>
+</div>

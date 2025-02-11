@@ -3,10 +3,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { EmpleadoService } from '../../../services/empleado.service';
 import { Empleado } from '../../../models/empleado';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-empleado-form',
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './empleado-form.component.html',
   styleUrl: './empleado-form.component.scss'
 })
@@ -18,7 +19,7 @@ export class EmpleadoFormComponent implements OnInit {
     private route: ActivatedRoute,
     private empleadoService: EmpleadoService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
